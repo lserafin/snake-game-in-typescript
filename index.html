@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game built with Typescript</title>
+  </head>
+  <body>
+    <div id="instructions">
+      <h2>Snake Game</h2>
+      <p>Use <strong>Arrow Keys</strong> to move the snake.</p>
+      <p>Press <strong>Space</strong> to start with a random direction.</p>
+      <p>Eat the red food to grow!</p>
+    </div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script type="module" src="/src/game.ts"></script>
+  </body>
+</html>

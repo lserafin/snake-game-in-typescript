@@ -1,0 +1,39 @@
+body {
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e1e1e; /* Dark gray background for that retro feel */
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 20px 0; /* Add padding to the top to push content down slightly */
+}
+
+canvas {
+  position: relative;
+  top: 20px;
+  border: 4px solid #5dc2af; /* Turquoise border */
+  background-color: #2e2e2e; /* Slightly lighter than the main background */
+}
+
+#instructions {
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #5dc2af; /* Turquoise background */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners */
+  border: 4px solid #ff6568; /* Red border */
+  margin-bottom: 20px; /* Push the canvas down a bit */
+  font-size: 0.75rem; /* Reduce the font size for the instructions */
+}
+
+#instructions h2 {
+  margin-bottom: 10px;
+  font-size: 1rem; /* Specific size for the h2 header */
+}
+
+#instructions p {
+  margin: 5px;
+}
