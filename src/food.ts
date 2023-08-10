@@ -1,8 +1,8 @@
 import { TILE_SIZE } from './game';
 
 export class Food {
-  x: number;
-  y: number;
+  x: number = 0;
+  y: number = 0;
 
   constructor() {
     this.randomPosition();

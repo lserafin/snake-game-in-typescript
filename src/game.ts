@@ -6,11 +6,11 @@ import { Food } from './food';
 const GAME_SPEED = 150; // in milliseconds, smaller values will make the game faster
 
 const canvas = document.getElementById('gameCanvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 let score = 0;
 
 export const TILE_SIZE = 20;
-const TILE_COUNT = canvas.width / TILE_SIZE;
+//const TILE_COUNT = canvas.width / TILE_SIZE;
 let isGameStarted = false;
 
 const snake = new Snake();
