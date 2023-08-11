@@ -48,7 +48,7 @@ document.addEventListener('keydown', (e) => {
           { x: 1, y: 0 },
           { x: -1, y: 0 },
           { x: 0, y: 1 },
-          { x: 0, y: -1 },
+          { x: 0, y: -1 }
         ];
         const randomDirection =
           directions[Math.floor(Math.random() * directions.length)];
