@@ -1,6 +1,6 @@
 import { SnakeSegment } from './snakesegment';
 import { TILE_SIZE } from './game';
-import imgUrl from './images/snacke_head_top.png';
+import imgUrl from './images/snacke_sprite_64_48.png';
 
 export class Snake {
   segments: SnakeSegment[] = [new SnakeSegment(10, 10)];
@@ -48,10 +48,20 @@ export class Snake {
   draw(ctx: CanvasRenderingContext2D) {
     //ctx.fillStyle = '#FF6568'; /* Red snake */
     for (let segment of this.segments) {
+      let posx = segment.x * TILE_SIZE;
+      let posy = segment.x * TILE_SIZE;
+      //posx = 0;
+      // posy = 0;
       ctx.drawImage(
         this.background,
-        segment.x * TILE_SIZE,
-        segment.y * TILE_SIZE
+        0, //Left cut
+        0, //Top cut
+        16,
+        16,
+        posx,
+        posy,
+        16,
+        16
       );
       /*
       ctx.fillRect(

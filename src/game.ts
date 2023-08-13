@@ -10,7 +10,7 @@ const canvas = document.getElementById('gameCanvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 let score = 0;
 
-export const TILE_SIZE = 20;
+export const TILE_SIZE = 16;
 //const TILE_COUNT = canvas.width / TILE_SIZE;
 let isGameStarted = false;
 
