@@ -12,6 +12,7 @@ let score = 0;
 export const TILE_SIZE = 20;
 //const TILE_COUNT = canvas.width / TILE_SIZE;
 let isGameStarted = false;
+let gameOver = false;
 
 const snake = new Snake();
 const food = new Food();
@@ -56,6 +57,13 @@ document.addEventListener('keydown', (e) => {
         snake.ySpeed = randomDirection.y;
         isGameStarted = true;
       }
+      if (gameOver) {
+        snake.resetSnake();
+        food.randomPosition();
+        isGameStarted = false;
+        score = 0;
+        gameOver = false;
+      }
       break;
   }
 });
@@ -68,7 +76,7 @@ function update() {
   snake.move();
 
   // Check for wall collision
-  if (snake.hasCollidedWithWall()) {
+  if (snake.hasCollidedWithWall() || snake.hasCollidedWithSelf()) {
     resetGame();
     return;
   }
@@ -93,13 +101,33 @@ function draw() {
   ctx.font = '1rem "Press Start 2P"';
   ctx.textAlign = 'left';
   ctx.fillText('Score: ' + score, 10, 30); // Display the score near the top-left corner of the canvas
+
+  if (gameOver) {
+    ctx.fillStyle = 'red';
+    ctx.font = '1rem "Press Start 2P"';
+    ctx.textAlign = 'center';
+    ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+    ctx.fillText(
+      `Final Score: ${score}`,
+      canvas.width / 2,
+      canvas.height / 2 + 40
+    );
+    ctx.fillText(
+      `Hit Space to play again`,
+      canvas.width / 2,
+      canvas.height / 2 + 60
+    );
+  }
 }
 
 function resetGame() {
+  // Instead of directly resetting, we set gameOver to true
+  gameOver = true;
+  /*
   snake.resetSnake();
   food.randomPosition();
   isGameStarted = false;
-  score = 0;
+  score = 0;*/
 }
 
 setInterval(() => {

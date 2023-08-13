@@ -38,6 +38,17 @@ export class Snake {
     );
   }
 
+  hasCollidedWithSelf(): boolean {
+    const head = this.segments[0];
+    for (let i = 1; i < this.segments.length; i++) {
+      const segment = this.segments[i];
+      if (head.x === segment.x && head.y === segment.y) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = '#FF6568'; /* Red snake */
     for (let segment of this.segments) {
