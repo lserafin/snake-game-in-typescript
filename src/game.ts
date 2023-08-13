@@ -1,4 +1,5 @@
 import './style.css';
+import imgUrl from './images/grass_background.png';
 
 import { Snake } from './snake';
 import { Food } from './food';
@@ -12,6 +13,14 @@ let score = 0;
 export const TILE_SIZE = 20;
 //const TILE_COUNT = canvas.width / TILE_SIZE;
 let isGameStarted = false;
+
+var background = new Image();
+background.src = imgUrl;
+
+// Make sure the image is loaded first otherwise nothing will draw.
+background.onload = function () {
+  ctx.drawImage(background, 0, 0);
+};
 
 const snake = new Snake();
 const food = new Food();
@@ -82,8 +91,10 @@ function update() {
 }
 
 function draw() {
-  ctx.fillStyle = 'black';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(background, 0, 0);
+
+  //ctx.fillStyle = 'black';
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   snake.draw(ctx);
   food.draw(ctx);

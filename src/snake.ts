@@ -1,10 +1,17 @@
 import { SnakeSegment } from './snakesegment';
 import { TILE_SIZE } from './game';
+import imgUrl from './images/snacke_head_top.png';
 
 export class Snake {
   segments: SnakeSegment[] = [new SnakeSegment(10, 10)];
   xSpeed = 0;
   ySpeed = 0;
+
+  background = new Image();
+
+  constructor() {
+    this.background.src = imgUrl;
+  }
 
   move() {
     const head = this.segments[0];
@@ -39,14 +46,20 @@ export class Snake {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = '#FF6568'; /* Red snake */
+    //ctx.fillStyle = '#FF6568'; /* Red snake */
     for (let segment of this.segments) {
+      ctx.drawImage(
+        this.background,
+        segment.x * TILE_SIZE,
+        segment.y * TILE_SIZE
+      );
+      /*
       ctx.fillRect(
         segment.x * TILE_SIZE,
         segment.y * TILE_SIZE,
         TILE_SIZE,
         TILE_SIZE
-      );
+      );*/
     }
   }
 }
